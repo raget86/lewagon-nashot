@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+  <!-- Componentes -->
+  <script src="https://kit.fontawesome.com/ffe875a884.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	
+  <!-- CSS Propio -->
+	<link href='css/style.css' rel='stylesheet'>
+
+  <!-- Primary Meta Tags -->
+  <title>NASHOT - Colección Vasitos del Mundo - Nacho Abella</title>
+  <meta name="title" content="NASHOT - Colección Vasitos del Mundo - Nacho Abella">
+  <meta name="description" content="Coleccionado el Mundo.
+  Cada vasito uno representa un país, una historia y una experiencia.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://metatags.io/">
+  <meta property="og:title" content="NASHOT - Colección Vasitos del Mundo - Nacho Abella">
+  <meta property="og:description" content="Coleccionado el Mundo.
+  Cada vasito uno representa un país, una historia y una experiencia.">
+  <meta property="og:image" src="images/nashot-metatag.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://metatags.io/">
+  <meta property="twitter:title" content="NASHOT - Colección Vasitos del Mundo - Nacho Abella">
+  <meta property="twitter:description" content="Coleccionado el Mundo.
+  Cada vasito uno representa un país, una historia y una experiencia.">
+  <meta property="twitter:image" src="images/nashot-metatag.jpg">
+
+	<title>NASHOT - Colección Vasitos del Mundo - Nacho Abella</title>
+  <link rel="icon" href="images/nashot-logo.png" type="image/png" sizes="16x16">
+</head>
+
+
+<body>
+
+  <!-- Form Modal v2 -->
+  <div class="modal" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content p-4">
+        <div class="modal-header p-0 pb-3">
+        <h3 class="modal-title">Envia un Mensaje</h3>
+        <button type="button" class="close pt-2" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <form>
+          <div class="form-group pt-2">
+            <label for="name">Nombre</label>
+            <input type="text" class="form-control" id="name" aria-describedby="nameHelp">
+            <small id="nameHelp" class="form-text text-danger"></small>
+          </div>
+          <div class="form-group">
+            <label for="email">Correo Electrónico</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+            <small id="emailHelp" class="form-text text-danger"></small>
+          </div>
+          <div class="form-group">
+            <label for="message">Mensaje</label>
+            <textarea class="form-control" id="message" rows="3" placeholder="Deja tu Mensaje Aquí"></textarea>
+            <small id="messageHelp" class="form-text text-danger"></small>
+          </div>
+          <button type="submit" class="btn btn-info">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+<!-- Navbar -->
+<div class="container">
+
+	<!-- Derecha -->
+	<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  		<a class="navbar-brand" href="#">
+    	<img src="images/nashot-logo.png" width="40" height="40" class="d-inline-block align-center">NASHOT
+  		</a>
+
+	<!-- Izquierda -->
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    	<span class="navbar-toggler-icon"></span>
+  		</button>
+
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-auto">
+	        <li class="nav-item btn">
+	        <a class="nav-link" data-toggle="modal" data-target="#modalContactForm">Envia un Mensaje</a>
+	      </li>
+
+	      	<li class="nav-item btn">
+	        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="images/avatar/nacho.jpg" />
+	        
+	      </li>
+	    </ul>
+	  </div>
+	</div>
+</div>
+
+
+<!-- Banner -->
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.1)), url(images/nashot-banner.jpg);">
+  <div class="container text-white">
+  		<h1>Coleccionado el Mundo</h1>
+  		<p style="opacity: .7;">Cada vasito uno representa un país, una historia y una experiencia.</p>
+  </div>
+</div>
+
+
+<!-- Destacados -->
+<div class="py-4 bg-light">
+  <div class="container">
+    		<h2 class="mb-3">Colección Destacada</h2>
+    
+
+    <div class="row d-flex justify-content-center">
+
+    	<div class="col-12 col-md-4 mb-3">
+     		<div class="card-destacado p-2">
+      		<img style ="transform: scaleX(-1);" src="https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1069&q=80" />
+      	 	<div class="card-destacado-infos">
+      		    <div>
+      		     	 <h3>Japon</h3>
+      		     	 <h4>Asia</h4>
+      		     	 <h5 style="padding-top:5px;">2019</h5>
+      		    </div>
+
+      		    <h5 class="card-destacado-year">Colaborador Sole Martin</h5>
+      		    <img src="images/avatar/sole.jpg" class="card-destacado-user avatar" />
+      	    	<img src="images/shots/destacados/asia-japon.png" class="card-destacado-shot" />
+        	</div>
+      	</div>
+      </div>
+
+      <div class="col-12 col-md-4 mb-3">
+        <div class="card-destacado p-2">
+          <img src="https://images.unsplash.com/photo-1539768942893-daf53e448371?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" />
+          <div class="card-destacado-infos">
+              <div>
+                 <h3>Egipto</h3>
+                 <h4>Africa</h4>
+                 <h5 style="padding-top:5px;">2020</h5>
+              </div>
+
+              <h5 class="card-destacado-year">Colaborador Nacho Abella</h5>
+              <img src="images/avatar/nacho.jpg" class="card-destacado-user avatar" />
+              <img src="images/shots/destacados/africa-egipto.png" class="card-destacado-shot" />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 mb-3">
+        <div class="card-destacado p-2">
+          <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" />
+          <div class="card-destacado-infos">
+              <div>
+                 <h3>USA</h3>
+                 <h4>America</h4>
+                 <h5 style="padding-top:5px;">2016</h5>
+              </div>
+
+              <h5 class="card-destacado-year">Colaborador Jose Abella</h5>
+              <img src="images/avatar/jose.jpg" class="card-destacado-user avatar" />
+              <img src="images/shots/destacados/america-eeuu.png" class="card-destacado-shot" />
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<!-- Continente Titulo -->
+
+<div class="py-4">
+  <div class="container">
+      <h2 class="mb-3">Colección Completa</h2>
+
+<!-- AFRICA -->
+
+      <div class="row mb-3 mobile-test">
+
+          <!-- Caratula -->
+          <div class="col-md-4">
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1515205244153-fce4e5d8bc49?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1121&q=80)"><h1>AFRICA</h1>
+  		      </div>
+          </div>
+
+   
+        <!-- Texto de Tarjeta -->
+        <div class="col-4 col-md-2">
+          <div class="hover hover-2 text-white"><img src="images/shots/africa-etiopia.png" alt="">
+            <div class="hover-overlay">
+            </div>
+            <div class="hover-2-content ">
+              <h3 class="hover-2-title font-weight-normal">Etiopia</h3>
+              <h4 class="hover-2-description">Nacho - 2020</h4>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Texto de Tarjeta -->
+        <div class="col-4 col-md-2">
+          <div class="hover hover-2 text-white"><img src="images/shots/africa-sa.png" alt="">
+            <div class="hover-overlay">
+            </div>
+            <div class="hover-2-content px-5 py-4">
+              <h3 class="hover-2-title font-weight-normal">Sudafrica</h3>
+              <h4 class="hover-2-description">Doli - 2018</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Texto de Tarjeta -->
+        <div class="col-4 col-md-2">
+          <div class="hover hover-2 text-white"><img src="images/shots/africa-tanzania.png" alt="">
+            <div class="hover-overlay">
+            </div>
+            <div class="hover-2-content px-5 py-4">
+              <h3 class="hover-2-title font-weight-normal">Tanzania</h3>
+              <h4 class="hover-2-description">Cata - 2019</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Texto de Tarjeta -->
+        <div class="col-md-2 last-card">
+          <div class="hover hover-2 text-white"><img src="images/shots/africa-kenia.png" alt="">
+            <div class="hover-overlay">
+            </div>
+            <div class="hover-2-content px-5 py-4">
+              <h3 class="hover-2-title font-weight-normal">Kenia</h3>
+              <h4 class="hover-2-description">Tere - 2018</h4>
+            </div>
+          </div>
+        </div>
+
+      </div>
+  
+
+<!-- AMERICA -->
+
+      <div class="row mb-3 mobile-test">
+
+          <!-- Caratula -->
+          <div class="col-md-4">
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80)"><h1>AMERICA</h1>
+            </div>
+          </div>
+
+   
+        <!-- Texto de Tarjeta -->
+        <div class="col-4 col-md-2">
+          <div class="hover hover-2 text-white"><img src="images/shots/america-argentina.png" alt="">
+            <div class="hover-overlay">
+            </div>
+            <div class="hover-2-content px-5 py-4">
+              <h3 class="hover-2-title font-weight-normal">Argentina</h3>
+              <h4 class="hover-2-description">Sole - 2015</h4>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Texto de Tarjeta -->
+        <div class="col-4 col-md-2">
+          <div class="hover hover-2 text-white"><img src="images/shots/america-canada.png" alt="">
+            <div class="hover-overlay">
+            </div>
+            <div class="hover-2-content px-5 py-4">
+              <h3 class="hover-2-title font-weight-normal">Canada</h3>
+              <h4 class="hover-2-description">Marce - 2017</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Texto de Tarjeta -->
+        <div class="col-4 col-md-2">
+          <div class="hover hover-2 text-white"><img src="images/shots/america-ecuador.png" alt="">
+            <div class="hover-overlay">
+            </div>
+            <div class="hover-2-content px-5 py-4">
+              <h3 class="hover-2-title font-weight-normal">Ecuador</h3>
+              <h4 class="hover-2-description">Jose - 2016</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Texto de Tarjeta -->
+        <div class="col-4 col-md-2 last-card">
+          <div class="hover hover-2 text-white"><img src="images/shots/america-chile.png" alt="">
+            <div class="hover-overlay">
+            </div>
+            <div class="hover-2-content px-5 py-4">
+              <h3 class="hover-2-title font-weight-normal">Chile</h3>
+              <h4 class="hover-2-description">Vicky - 2018</h4>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+<!-- ASIA -->
+
+      <div class="row mb-3 mobile-test">
+
+          <!-- Caratula -->
+          <div class="col-md-4">
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1493780474015-ba834fd0ce2f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1026&q=80)"><h1>ASIA</h1>
+            </div>
+          </div>
+
+   
+        <!-- Texto de Tarjeta -->
+        <div class="col-4 col-md-2">
+          <div class="hover hover-2 text-white"><img src="images/shots/asia-dubai.png" alt="">
+            <div class="hover-overlay">
+            </div>
+            <div class="hover-2-content px-5 py-4">
+              <h3 class="hover-2-title font-weight-normal">Emiratos</h3>
+              <h4 class="hover-2-description">Nacho - 2019</h4>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Texto de Tarjeta -->
+        <div class="col-4 col-md-2">
+          <div class="hover hover-2 text-white"><img src="images/shots/asia-nepal.png" alt="">
+            <div class="hover-overlay">
+            </div>
+            <div class="hover-2-content px-5 py-4">
+              <h3 class="hover-2-title font-weight-normal">Nepal</h3>
+              <h4 class="hover-2-description">Poli - 2017</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Texto de Tarjeta -->
+        <div class="col-4 col-md-2">
+          <div class="hover hover-2 text-white"><img src="images/shots/asia-singapur.png" alt="">
+            <div class="hover-overlay">
+            </div>
+            <div class="hover-2-content px-5 py-4">
+              <h3 class="hover-2-title font-weight-normal">Singapur</h3>
+              <h4 class="hover-2-description">Felipe - 2018</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Texto de Tarjeta -->
+        <div class="col-4 col-md-2 last-card">
+          <div class="hover hover-2 text-white"><img src="images/shots/asia-china.png" alt="">
+            <div class="hover-overlay">
+            </div>
+            <div class="hover-2-content px-5 py-4">
+              <h3 class="hover-2-title font-weight-normal">China</h3>
+              <h4 class="hover-2-description">Sole - 2014</h4>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+<!-- EUROPA -->
+
+      <div class="row mb-3 mobile-test">
+
+          <!-- Caratula -->
+          <div class="col-md-4">
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1499856871958-5b9627545d1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1007&q=80)"><h1>EUROPA</h1>
+            </div>
+          </div>
+
+   
+        <!-- Texto de Tarjeta -->
+        <div class="col-4 col-md-2">
+          <div class="hover hover-2 text-white"><img src="images/shots/europa-portugal.png" alt="">
+            <div class="hover-overlay">
+            </div>
+            <div class="hover-2-content px-5 py-4">
+              <h3 class="hover-2-title font-weight-normal">Portugal</h3>
+              <h4 class="hover-2-description">Vero - 2019</h4>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Texto de Tarjeta -->
+        <div class="col-4 col-md-2">
+          <div class="hover hover-2 text-white"><img src="images/shots/europa-francia.png" alt="">
+            <div class="hover-overlay">
+            </div>
+            <div class="hover-2-content px-5 py-4">
+              <h3 class="hover-2-title font-weight-normal">Francia</h3>
+              <h4 class="hover-2-description">Isabel - 2019</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Texto de Tarjeta -->
+        <div class="col-4 col-md-2">
+          <div class="hover hover-2 text-white"><img src="images/shots/europa-amsterdam.png" alt="">
+            <div class="hover-overlay">
+            </div>
+            <div class="hover-2-content px-5 py-4">
+              <h3 class="hover-2-title font-weight-normal">Holanda</h3>
+              <h4 class="hover-2-description">Nacho - 2019</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Texto de Tarjeta -->
+        <div class="col-4 col-md-2 last-card">
+          <div class="hover hover-2 text-white"><img src="images/shots/europa-finlandia.png" alt="">
+            <div class="hover-overlay">
+            </div>
+            <div class="hover-2-content px-5 py-4">
+              <h3 class="hover-2-title font-weight-normal">Finlandia</h3>
+              <h4 class="hover-2-description">Poli - 2018</h4>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+<!-- OCEANIA -->
+
+      <div class="row mb-3 mobile-test">
+
+          <!-- Caratula -->
+          <div class="col-md-4">
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1532984969226-95057604f683?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1391&q=80)"><h1>OCEANIA</h1>
+            </div>
+          </div>
+
+   
+        <!-- Texto de Tarjeta -->
+        <div class="col-4 col-md-2">
+          <div class="hover hover-2 text-white"><img src="images/shots/oceania-nz.png" alt="">
+            <div class="hover-overlay">
+            </div>
+            <div class="hover-2-content px-5 py-4">
+              <h3 class="hover-2-title font-weight-normal">NZ</h3>
+              <h4 class="hover-2-description">Nacho - 2011</h4>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Texto de Tarjeta -->
+        <div class="col-4 col-md-2">
+          <div class="hover hover-2 text-white"><img src="images/shots/oceania-australia.png" alt="">
+            <div class="hover-overlay">
+            </div>
+            <div class="hover-2-content px-5 py-4">
+              <h3 class="hover-2-title font-weight-normal">Australia</h3>
+              <h4 class="hover-2-description">Sole - 2013</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Texto de Tarjeta -->
+        <div class="col-4 col-md-2">
+          <div class="hover hover-2 text-white"><img src="images/shots/oceania-nz2.png" alt="">
+            <div class="hover-overlay">
+            </div>
+            <div class="hover-2-content px-5 py-4">
+              <h3 class="hover-2-title font-weight-normal">Hobbiton</h3>
+              <h4 class="hover-2-description">Nacho - 2011</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Texto de Tarjeta -->
+        <div class="col-4 col-md-2 last-card">
+          <div class="hover hover-2 text-white"><img src="images/shots/oceania-fiji.png" alt="">
+            <div class="hover-overlay">
+            </div>
+            <div class="hover-2-content px-5 py-4">
+              <h3 class="hover-2-title font-weight-normal">Fiji</h3>
+              <h4 class="hover-2-description">Google - 2020</h4>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+  </div>
+</div>
+
+
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-links">
+    <a href="https://github.com/raget86" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://www.instagram.com/solemartin86/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/ma.soledad.martin" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.linkedin.com/in/soledadmartin86/" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright text-right">
+    Hecho por Sole Martin</br><i class="fas fa-heart"></i> ¡Gracias <a href="https://www.lewagon.com/es/buenos-aires" target="_blank" class="text-muted text-decoration-none">Le Wagon</a>!
+  </div>
+</div>
+
+
+
+
+<!-- JS Validacion -->
+<script src='validation.js'></script>
+
+
+</body>
+</html>

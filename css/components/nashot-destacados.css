@@ -1,0 +1,40 @@
+.card-destacado {
+  background: #fff;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+
+ }
+
+.card-destacado > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-destacado-infos {
+  padding: 15px 10px;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-destacado-shot {
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+  max-width: 130px;
+  max-height: 200px;
+}
+
+.card-destacado-year {
+  position: absolute;
+  right: 10px;
+  bottom: 15px;
+}
+
+.card-destacado-user {
+  position: absolute;
+  right: 10px;
+  bottom: 35px;
+  width: 40px;
+}
