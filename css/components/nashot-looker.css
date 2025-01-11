@@ -12,7 +12,13 @@
 
 @media (max-width: 768px) {
 
+    .card-title {
+        font-size: 3rem;
+    }
+
     #map-iframe {
         display: none;
     }
+
+
 }
