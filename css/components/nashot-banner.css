@@ -8,4 +8,15 @@
 @media (max-width: 768px) {
   .banner h1, p {
     text-align: center;
+  }
+
+  .banner {
+    height: 250px;
+    background-position: right;
+    transform: scaleX(-1);
+  }
+
+  .banner > .container {
+    transform: scaleX(-1);
+  }
 }
