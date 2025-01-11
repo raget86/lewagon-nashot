@@ -128,4 +128,8 @@
         transform: scale(0.80) translate(0, -15px);
         transition: all 0.8s ease;
     }
+
+    .card-flip__title {
+        font-size: 16px;
+    }
 }
