@@ -16,11 +16,15 @@
     position: absolute;
     top: 0;
     padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
 .card-flip__img-container img {
-    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
     text-align: center;
 }
 
