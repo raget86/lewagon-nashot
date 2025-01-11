@@ -1,0 +1,18 @@
+.data-card {
+    background-color: #0097a7 !important;
+    color: #fff;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+
+@media (max-width: 768px) {
+
+    #map-iframe {
+        display: none;
+    }
+}
