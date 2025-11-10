@@ -1,5 +1,4 @@
-
-        /* Definir el color primario (#0097a7) */
+/* Definir el color primario (#0097a7) */
         :root {
             --primary-color: #0097a7; 
         }
@@ -10,7 +9,6 @@
             margin: 10px;
             background-color: #f4f4f4;
         }
-
         
         /* Estilo para la barra de búsqueda */
         #filtro-container {
@@ -188,4 +186,3 @@
                 border-right-color: #f4f4f4;
             }
         }
-
