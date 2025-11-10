@@ -1,20 +1,9 @@
-/* Definir el color primario (#0097a7) */
-        :root {
-            --primary-color: #0097a7; 
-        }
 
-        /* --- ESTILOS GENERALES Y ACORDEÓN --- */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 10px;
-            background-color: #f4f4f4;
-        }
-        
         /* Estilo para la barra de búsqueda */
         #filtro-container {
             margin-bottom: 20px;
             padding: 15px;
-            background-color: #fff;
+            background-color: #f4f4f4;
             border-radius: 8px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
@@ -53,7 +42,7 @@
 
         /* Título/botón del acordeón */
         .acordeon-header {
-            background-color: var(--primary-color);
+            background-color: #0097a7;
             color: white;
             padding: 15px;
             cursor: pointer;
