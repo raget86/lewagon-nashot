@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSS Propio -->
     <link href="css/style.css" rel="stylesheet">
@@ -104,7 +105,7 @@
                 <div class="col-6 col-md-4">
                     <div class="card mb-3 data-card">
                         <div class="card-body">
-                            <h5 class="card-title"><span id="cellA2"></span></h5>
+                            <p class="number card-title" id="total-paises">...</p>
                             <p class="card-text">Paises del Mundo</p>
                         </div>
                     </div>
@@ -112,7 +113,7 @@
                 <div class="col-6 col-md-4">
                     <div class="card mb-3 data-card">
                         <div class="card-body">
-                            <h5 class="card-title"><span id="cellB2"></span></h5>
+                            <p class="number card-title" id="paises-reunidos">...</p>
                             <p class="card-text">Paises Reunidos</p>
                         </div>
                     </div>
@@ -120,7 +121,7 @@
                 <div class="col-sm-12 col-md-4">
                     <div class="card data-card">
                         <div class="card-body">
-                            <h5 class="card-title"><span id="cellC2"></span></h5>
+                            <p class="number card-title" id="porcentaje-progreso">...</p>
                             <p class="card-text">Progreso Actual</p>
                         </div>
                     </div>
@@ -131,6 +132,21 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Tabla y Filtro -->
+    
+    <div class="container px-4">
+        <h2 class="mb-4">Países por Continente</h2>
+    
+        <div id="filtro-container">
+            <label for="filtro-pais">Buscar país:</label>
+            <input type="text" id="filtro-pais" placeholder="Escribe el nombre de un país..." onkeyup="filtrarPaises()">
+        </div>
+        <div id="contenedor-datos">
+        </div>
+        </div>
+
     <!-- Destacados -->
     <div class="py-4 pb-5" style="background-color: #efefef;">
         <div class="container px-4">
@@ -510,9 +526,9 @@
         <div class="footer-links">
             <a href="https://github.com/raget86" target="_blank"><i class="fab fa-github"></i></a>
             <a href="https://www.instagram.com/solemartin86/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.facebook.com/ma.soledad.martin" target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="https://www.linkedin.com/in/soledadmartin86/" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="https://lookerstudio.google.com/reporting/1cjTL_vc_VQ0s3kDntMAnWFPCWxMX9ZAB" target="_blank"><i class="fas fa-chart-bar"></i></a>
+            <a href="https://docs.google.com/spreadsheets/d/142aGzWVUxuErRNh7IRyM1rONEG1BLv_pT-NJzXtqJBM/edit?usp=sharing" target="_blank"><i class="far fa-file-excel"></i></a>
         </div>
         <div class="footer-copyright text-right">
             Hecho por Sole Martin  <i class="fas fa-heart"></i>
@@ -522,7 +538,10 @@
     <script src='js/validation.js'></script>
     <script src="js/swiper-bundle.min.js"></script>
     <script src="js/script.js"></script>
-    <script src="js/nashot-sheets-extract.js"></script>
+    <script src="js/nashot-datos-tiempo-real.js"></script>
+    <script src="js/nashot-tabla-filtro.js"></script>
+  
+
 </body>
 
 </html>
