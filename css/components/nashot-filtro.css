@@ -10,10 +10,7 @@
             margin: 10px;
             background-color: #f4f4f4;
         }
-        h1 {
-            color: #333;
-            margin-bottom: 20px;
-        }
+
         
         /* Estilo para la barra de búsqueda */
         #filtro-container {
@@ -191,3 +188,4 @@
                 border-right-color: #f4f4f4;
             }
         }
+
