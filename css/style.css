@@ -4,6 +4,7 @@
 @import url('components/nashot-destacados.css');
 @import url('components/nashot-continentes.css');
 @import url('components/nashot-footer.css');
+@import url('components/nashot-filtro.css');
 @import url('components/nashot-looker.css');
 @import url('components/nashot-flip.css');
 @import url('style-carousel.css');
@@ -15,4 +16,5 @@
   width: 100%;
   padding: 0 30px;
 }
+
 
