@@ -1,0 +1,193 @@
+
+        /* Definir el color primario (#0097a7) */
+        :root {
+            --primary-color: #0097a7; 
+        }
+
+        /* --- ESTILOS GENERALES Y ACORDEÓN --- */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        /* Estilo para la barra de búsqueda */
+        #filtro-container {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        #filtro-pais {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; 
+            font-size: 1em;
+        }
+
+        /* --- SPINNER DE CARGA --- */
+        .loading-spinner {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid var(--primary-color);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+            margin: 50px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Contenedor principal del continente/acordeón */
+        .contenedor-acordeon {
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            overflow: hidden;
+        }
+
+        /* Título/botón del acordeón */
+        .acordeon-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* Contenedor del título y contador */
+        .acordeon-title-wrapper {
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        /* Estilo para el contador dentro del título */
+        .acordeon-title-wrapper span {
+            font-weight: normal; 
+            margin-left: 10px;
+            font-size: 0.9em;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* Estilo del icono (flecha) */
+        .acordeon-header::after {
+            content: '+';
+            font-size: 1.5em;
+            transition: transform 0.3s;
+            line-height: 1;
+            margin-left: 10px; 
+        }
+
+        /* Icono al estar activo (cambia a flecha hacia arriba o "-") */
+        .acordeon-header.active::after {
+            content: '−';
+            transform: rotate(0deg);
+        }
+
+        /* Contenido del acordeón */
+        .acordeon-content {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+        
+        /* Cuando el contenido está activo */
+        .acordeon-content.show {
+            max-height: 5000px;
+            padding: 15px;
+        }
+
+        /* --- ESTILOS RESPONSIVOS DE LA TABLA (MÓVIL / 1 Par) --- */
+        table {
+            table-layout: fixed; 
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 5px;
+        }
+        thead {
+            display: none; 
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 4px 6px; 
+            text-align: left;
+            font-size: 0.9em;
+            width: 50%; /* Móvil: 1 par visible */
+        }
+
+        /* REGLA MÓVIL: Ocultar columnas 3 a 8 */
+        td:nth-child(n+3), th:nth-child(n+3) {
+            display: none !important; 
+        }
+        
+        /* Separación para el 1er par */
+        td:nth-child(2) { 
+            border-right-width: 3px;
+            border-right-color: #f4f4f4;
+        }
+        
+        /* Estilos de estado */
+        .status-ok {
+            color: green;
+            font-weight: bold;
+        }
+        .status-pendiente {
+            color: orange;
+            font-weight: bold;
+        }
+
+        /* MEDIA QUERY: TABLET (3 Pares) */
+        @media (min-width: 768px) {
+            th, td {
+                width: 16.66% !important; 
+            }
+            
+            td:nth-child(-n+6), th:nth-child(-n+6) { 
+                display: table-cell !important;
+            }
+
+            td:nth-child(n+7), th:nth-child(n+7) {
+                display: none !important;
+            }
+
+            td:nth-child(even) {
+                border-right-width: 3px;
+                border-right-color: #f4f4f4;
+            }
+        }
+
+        /* MEDIA QUERY: ESCRITORIO (4 Pares) */
+        @media (min-width: 1024px) {
+            th, td {
+                width: 12.5% !important; 
+            }
+            
+            td:nth-child(n), th:nth-child(n) { 
+                display: table-cell !important;
+            }
+            
+            td:nth-child(even) {
+                border-right-width: 3px;
+                border-right-color: #f4f4f4;
+            }
+        }
