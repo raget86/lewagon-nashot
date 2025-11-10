@@ -1,5 +1,4 @@
-
-    // URL de tu CSV de Google Sheets
+// URL de tu CSV de Google Sheets
     const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTIONazFmwW5mMTlPn0mJJGis7MT3__hiG_D8redxOviy56l9nDsXNBiX_Yts_vxyUWoyow_UoFlKZs/pub?gid=0&single=true&output=csv';
     const contenedorDatos = document.getElementById('contenedor-datos');
 
@@ -10,19 +9,19 @@
     
     const COLUMNS_PER_ROW = 4; 
     let datosAgrupadosGlobal = {}; 
+    
+    // ⭐ VARIABLE GLOBAL PARA CONTROLAR LA ESTABILIDAD
+    let currentLayoutMode = ''; 
 
 
-    // ⭐ FUNCIÓN CORREGIDA: Determina las filas para el cálculo vertical.
+    // FUNCIÓN OPTIMIZADA: Determina las filas para el cálculo vertical.
     function getRowsForRendering(totalPaises) {
-        // Móvil (< 768px): 1 columna visible. Lista completa.
         if (window.innerWidth < 768) {
             return totalPaises; 
         } 
-        // Tablet (768px a 1024px): 3 columnas visibles.
         else if (window.innerWidth < 1024) {
-             return Math.ceil(totalPaises / 3); // CÁLCULO CLAVE: Usamos 3 columnas
+             return Math.ceil(totalPaises / 3); 
         }
-        // Escritorio (>= 1024px): 4 columnas visibles.
         else {
              return Math.ceil(totalPaises / COLUMNS_PER_ROW); 
         }
@@ -80,18 +79,15 @@
     function agregarCeldaStatus(row, statusTextOriginal) {
         let statusText;
         
-        // Si no hay valor (es decir, la celda fue llamada sin datos), ponemos ''
         if (statusTextOriginal === undefined) {
              statusText = '';
         } else {
-            // Si el status es nulo/vacío, se reemplaza por "Pendiente"
             statusText = statusTextOriginal || 'Pendiente'; 
         }
 
         const celdaStatus = row.insertCell();
         celdaStatus.textContent = statusText;
         
-        // Aplicar estilos
         if (statusText && statusText.toLowerCase() === 'ok') {
             celdaStatus.classList.add('status-ok');
         } else if (statusText && statusText.toLowerCase() === 'pendiente') {
@@ -100,8 +96,15 @@
     }
 
 
-    // Función principal para generar las tablas
     function generarTablas(agrupados, filtroTexto = '') {
+        if (window.innerWidth < 768) {
+            currentLayoutMode = 'mobile';
+        } else if (window.innerWidth < 1024) {
+            currentLayoutMode = 'tablet';
+        } else {
+            currentLayoutMode = 'desktop';
+        }
+
         contenedorDatos.innerHTML = ''; 
         
         const continentesOrdenados = Object.keys(agrupados).sort();
@@ -111,7 +114,6 @@
         continentesOrdenados.forEach(continente => {
             let paisesOriginal = agrupados[continente];
             
-            // 1. Filtrar los países. 
             let paisesFiltrados = paisesOriginal;
             if (filtroRegex) {
                 paisesFiltrados = paisesOriginal.filter(pais => {
@@ -126,13 +128,11 @@
             
             resultadosEncontrados = true; 
             
-            // 2. Contar países con status 'OK'
             const countOk = paisesFiltrados.filter(pais => 
                 (pais[COLUMNA_STATUS] && pais[COLUMNA_STATUS].toLowerCase() === 'ok')
             ).length;
             const totalPaises = paisesFiltrados.length;
             
-            // 3. Ordenar la lista ALFABÉTICAMENTE
             paisesFiltrados.sort((a, b) => {
                 const nombreA = a[COLUMNA_PAIS] ? a[COLUMNA_PAIS].toUpperCase() : '';
                 const nombreB = b[COLUMNA_PAIS] ? b[COLUMNA_PAIS].toUpperCase() : '';
@@ -177,23 +177,19 @@
             
             const tbody = tabla.createTBody();
             
-            // ⭐ APLICACIÓN CLAVE: Usar la lógica de cálculo adaptativa
             const rows = getRowsForRendering(totalPaises); 
 
-            // El bucle principal iterará el número de filas determinado por getRowsForRendering
             for (let i = 0; i < rows; i++) {
                 const row = tbody.insertRow();
                 
                 for (let j = 0; j < COLUMNS_PER_ROW; j++) {
-                    // Calculamos el índice vertical
                     const index = i + (j * rows); 
                     const pais = paisesFiltrados[index]; 
                     
                     if (pais) {
                         agregarCelda(row, pais[COLUMNA_PAIS] || '');
-                        agregarCeldaStatus(row, pais[COLUMNA_STATUS]); // Pasa el status original
+                        agregarCeldaStatus(row, pais[COLUMNA_STATUS]); 
                     } else {
-                        // Sin país: El status se pasa como undefined para que la función lo maneje como placeholder
                         agregarCelda(row, '');
                         agregarCeldaStatus(row, undefined); 
                     }
@@ -207,9 +203,11 @@
             contenedorDatos.appendChild(divAcordeon);
 
             if (filtroRegex) {
+                // Si hay filtro, se expande para mostrar el resultado
                 header.classList.add('active');
                 content.classList.add('show');
             }
+            // ⭐ NO SE HACE NADA AQUÍ SI NO HAY FILTRO: por defecto queda cerrado.
         });
 
         if (!resultadosEncontrados && filtroTexto) {
@@ -218,7 +216,7 @@
     }
     
     
-    // ⭐ FUNCIÓN FILTRAR OPTIMIZADA: usa debounce
+    // FUNCIÓN FILTRAR OPTIMIZADA: usa debounce
     let debounceTimer;
     function filtrarPaises() {
         clearTimeout(debounceTimer);
@@ -226,14 +224,13 @@
             const textoFiltro = document.getElementById('filtro-pais').value.trim();
             generarTablas(datosAgrupadosGlobal, textoFiltro);
             inicializarAcordeon();
-        }, 250); // Espera 250ms después de la última tecla para regenerar
+        }, 250); 
     }
 
 
     // Lógica de JavaScript para el acordeón 
     function inicializarAcordeon() {
-        // OPTIMIZACIÓN: Añadir el debounce para el resize
-        window.removeEventListener('resize', resizeHandler); // Limpia el listener anterior
+        window.removeEventListener('resize', resizeHandler); 
         window.addEventListener('resize', resizeHandler);
         
         const headers = document.querySelectorAll('.acordeon-header');
@@ -242,17 +239,14 @@
             header.removeEventListener('click', toggleAcordeon);
             header.addEventListener('click', toggleAcordeon);
 
-            const isFirst = header === headers[0];
+            // ⭐ CAMBIO CLAVE: Eliminar la lógica de expansión del primer elemento.
+            // La expansión solo ocurre si hay un filtro aplicado, lo cual se maneja en generarTablas.
+            // Aquí solo nos aseguramos de que no queden activos si el filtro se borra.
             const isFiltered = document.getElementById('filtro-pais').value.trim();
 
-            if (isFiltered) {
-                // Ya expandido
-            } else if (isFirst) {
-                header.classList.add('active');
-                header.nextElementSibling.classList.add('show');
-            } else {
-                header.classList.remove('active');
-                header.nextElementSibling.classList.remove('show');
+            if (!isFiltered) {
+                 header.classList.remove('active');
+                 header.nextElementSibling.classList.remove('show');
             }
         });
     }
@@ -262,11 +256,15 @@
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
             if (Object.keys(datosAgrupadosGlobal).length > 0) {
-                const filtroTexto = document.getElementById('filtro-pais').value.trim();
-                generarTablas(datosAgrupadosGlobal, filtroTexto);
-                inicializarAcordeon(); // Es necesario reinicializar el acordeón para que funcione el clic después del renderizado.
+                const newMode = (window.innerWidth < 768) ? 'mobile' : (window.innerWidth < 1024) ? 'tablet' : 'desktop';
+                
+                if (newMode !== currentLayoutMode) {
+                    const filtroTexto = document.getElementById('filtro-pais').value.trim();
+                    generarTablas(datosAgrupadosGlobal, filtroTexto);
+                    inicializarAcordeon(); 
+                }
             }
-        }, 250); // Espera 250ms para regenerar después de redimensionar
+        }, 250); 
     }
     
     function toggleAcordeon() {
