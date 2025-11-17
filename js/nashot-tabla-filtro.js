@@ -4,7 +4,7 @@
 
     // Nombres de columna ESPERADOS
     const COLUMNA_CONTINENTE = 'CONTINENTE';
-    const COLUMNA_PAIS = 'PAÍS';
+    const COLUMNA_PAIS = 'PAIS';
     const COLUMNA_STATUS = 'STATUS';
     
     const COLUMNS_PER_ROW = 4; 
