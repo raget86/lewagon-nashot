@@ -1,5 +1,5 @@
 // URL de tu CSV de Google Sheets
-    const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTIONazFmwW5mMTlPn0mJJGis7MT3__hiG_D8redxOviy56l9nDsXNBiX_Yts_vxyUWoyow_UoFlKZs/pub?gid=0&single=true&output=csv';
+    const csvUrlTabla = `https://docs.google.com/spreadsheets/d/e/2PACX-1vTIONazFmwW5mMTlPn0mJJGis7MT3__hiG_D8redxOviy56l9nDsXNBiX_Yts_vxyUWoyow_UoFlKZs/pub?gid=0&single=true&output=csv`;
     const contenedorDatos = document.getElementById('contenedor-datos');
 
     // Nombres de columna ESPERADOS
@@ -33,7 +33,7 @@
         try {
             contenedorDatos.innerHTML = '<div class="loading-spinner"></div>';
             
-            const response = await fetch(CSV_URL);
+            const response = await fetch(csvUrlTabla);
             if (!response.ok) {
                 throw new Error(`Error de red: ${response.statusText}`);
             }
@@ -114,11 +114,16 @@
         continentesOrdenados.forEach(continente => {
             let paisesOriginal = agrupados[continente];
             
+            //Funcion de Claude
+            function normalizar(texto) {
+            return String(texto || '').trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+            }
+
             let paisesFiltrados = paisesOriginal;
-            if (filtroRegex) {
-                paisesFiltrados = paisesOriginal.filter(pais => {
-                    const nombrePais = pais[COLUMNA_PAIS] || '';
-                    return nombrePais.match(filtroRegex);
+            if (filtroTexto) {
+            paisesFiltrados = paisesOriginal.filter(pais => {
+                const nombrePais = normalizar(pais[COLUMNA_PAIS] || '');
+                return nombrePais.includes(normalizar(filtroTexto));
                 });
             }
 

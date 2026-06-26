@@ -3,23 +3,15 @@
 
 <head>
     <meta charset="utf-8">
-    <!-- Componentes -->
-    <script src="https://kit.fontawesome.com/ffe875a884.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- CSS Propio -->
-    <link href="css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="css/style-carousel.css" />
+
     <!-- Primary Meta Tags -->
     <title>NASHOT - Colección Vasitos del Mundo - Nacho Abella</title>
     <meta name="title" content="NASHOT - Colección Vasitos del Mundo - Nacho Abella">
     <meta name="description" content="Coleccionado el Mundo.
   Cada vasito representa un país, una historia y una experiencia.">
+  <link rel="icon" href="images/nashot-logo.png" type="image/png" sizes="16x16">
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://metatags.io/">
@@ -27,6 +19,7 @@
     <meta property="og:description" content="Coleccionado el Mundo.
   Cada vasito representa un país, una historia y una experiencia.">
     <meta property="og:image" src="images/nashot-metatag.jpg">
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://metatags.io/">
@@ -34,8 +27,30 @@
     <meta property="twitter:description" content="Coleccionado el Mundo.
   Cada vasito representa un país, una historia y una experiencia.">
     <meta property="twitter:image" src="images/nashot-metatag.jpg">
-    <title>NASHOT - Colección Vasitos del Mundo - Nacho Abella</title>
-    <link rel="icon" href="images/nashot-logo.png" type="image/png" sizes="16x16">
+
+    <!-- Componentes -->
+    <script src="https://kit.fontawesome.com/ffe875a884.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8.4.4/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8.4.4/swiper-bundle.min.js"></script>
+
+    <!-- CSS Propio -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style-carousel.css" />
+    <link rel="stylesheet" href="css/nashot-product-card.css" />
+    
 </head>
 
 <body>
@@ -90,6 +105,9 @@
             </div> -->
         </div>
     </div>
+
+
+
     <!-- Banner -->
     <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4 ),rgba(0,0,0,0.1)), url(images/nashot-banner.jpg);">
         <div class="container text-white px-4">
@@ -97,6 +115,8 @@
             <p>Cada vasito representa un país, una historia y una experiencia.</p>
         </div>
     </div>
+
+
     <!-- Status Map -->
     <div class="py-4">
         <div class="container px-4">
@@ -127,16 +147,20 @@
                     </div>
                 </div>
             </div>
-            <div id="map-iframe" class="ratio ratio-16x9">
-                <iframe src="https://lookerstudio.google.com/embed/reporting/030fdc4a-8f63-4020-a244-f57382cd527d/page/pMMb" allowfullscreen></iframe>
-            </div>
+            
+            <!-- Map Claude -->
+
+            <div id="mapa-container" style="height: 500px; width: 100%; border-radius: 8px;"></div>
+
         </div>
     </div>
 
 
+
+
     <!-- Tabla y Filtro -->
     
-    <div class="container px-4">
+    <div class="container px-4 pb-4">
         <h2 class="mb-4">Países por Continente</h2>
     
         <div id="filtro-container">
@@ -150,7 +174,7 @@
     <!-- Destacados -->
     <div class="py-4 pb-5" style="background-color: #efefef;">
         <div class="container px-4">
-            <h2 class="mb-4">Destacados del Mes</h2>
+            <h2 class="mb-4">Novedades en la Colección</h2>
             <!-- NEW -->
             <div class="swiper">
                 <div class="slide-container">
@@ -166,7 +190,7 @@
                                     </div>
                                     <h5 class="card-destacado-year">Colaborador Sole Martin</h5>
                                     <img src="images/avatar/sole.jpg" class="card-destacado-user avatar" />
-                                    <img src="images/shots/destacados/asia-japon.png" class="card-destacado-shot" />
+                                    <img src="images/shots/asia-japon.png" class="card-destacado-shot" />
                                 </div>
                             </div>
                         </div>
@@ -181,7 +205,7 @@
                                     </div>
                                     <h5 class="card-destacado-year">Colaborador Nacho Abella</h5>
                                     <img src="images/avatar/nacho.jpg" class="card-destacado-user avatar" />
-                                    <img src="images/shots/destacados/africa-egipto.png" class="card-destacado-shot" />
+                                    <img src="images/shots/africa-egipto.png" class="card-destacado-shot" />
                                 </div>
                             </div>
                         </div>
@@ -196,10 +220,27 @@
                                     </div>
                                     <h5 class="card-destacado-year">Colaborador Jose Abella</h5>
                                     <img src="images/avatar/jose.jpg" class="card-destacado-user avatar" />
-                                    <img src="images/shots/destacados/america-eeuu.png" class="card-destacado-shot" />
+                                    <img src="images/shots/america-eeuu.png" class="card-destacado-shot" />
                                 </div>
                             </div>
                         </div>
+                        
+                        <div class="card swiper-slide">
+                            <div class="card-destacado">
+                                <img src="https://images.unsplash.com/photo-1553886334-43d24f24d3bd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1069&q=80" />
+                                <div class="card-destacado-infos">
+                                    <div>
+                                        <h3>Nepal</h3>
+                                        <h4>Asia</h4>
+                                        <h5 style="padding-top:5px;">2018</h5>
+                                    </div>
+                                    <h5 class="card-destacado-year">Colaborador Poli Martin</h5>
+                                    <img src="images/avatar/poli.jpg" class="card-destacado-user avatar" />
+                                    <img src="images/shots/asia-nepal.png" class="card-destacado-shot" />
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="card swiper-slide">
                             <div class="card-destacado">
                                 <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1069&q=80" />
@@ -211,7 +252,7 @@
                                     </div>
                                     <h5 class="card-destacado-year">Colaborador Nacho Abella</h5>
                                     <img src="images/avatar/nacho.jpg" class="card-destacado-user avatar" />
-                                    <img style="transform: scaleX(-1);" src="images/shots/destacados/europa-alemania.png" class="card-destacado-shot" />
+                                    <img style="transform: scaleX(-1);" src="images/shots/europa-alemania.png" class="card-destacado-shot" />
                                 </div>
                             </div>
                         </div>
@@ -223,6 +264,9 @@
             </div>
         </div>
     </div>
+
+
+
     <!-- Continente Titulo -->
     <div class="py-4">
         <div class="container px-4">
@@ -231,10 +275,12 @@
             <div class="row mb-3 mobile-test">
                 <!-- Caratula -->
                 <div class="col-md-4">
+                    <a style="text-decoration: none;" href="Continente - Africa.html">
                     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1515205244153-fce4e5d8bc49?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1121&q=80)">
                         <h1>AFRICA</h1>
-                        <h5>Proximamente Coleccion Completa</h5>
+                        <h5>Ver Colección Completa</h5>
                     </div>
+                    </a>
                 </div>  
                 <!-- Texto de Tarjeta -->
                 <div class="col-4 col-md-2">
@@ -289,10 +335,12 @@
             <div class="row mb-3 mobile-test">
                 <!-- Caratula -->
                 <div class="col-md-4">
+                    <a style="text-decoration: none;" href="Continente - America.html">
                     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80)">
                         <h1>AMERICA</h1>
-                        <h5>Proximamente Coleccion Completa</h5>
+                        <h5>Ver Colección Completa</h5>
                     </div>
+                    </a>
                 </div>
                 <!-- Texto de Tarjeta -->
                 <div class="col-4 col-md-2">
@@ -347,10 +395,12 @@
             <div class="row mb-3 mobile-test">
                 <!-- Caratula -->
                 <div class="col-md-4">
+                    <a style="text-decoration: none;" href="Continente - Asia.html">
                     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1493780474015-ba834fd0ce2f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1026&q=80)">
                         <h1>ASIA</h1>
-                        <h5>Proximamente Coleccion Completa</h5>
+                        <h5>Ver Colección Completa</h5>
                     </div>
+                    </a>
                 </div>
                 <!-- Texto de Tarjeta -->
                 <div class="col-4 col-md-2">
@@ -405,10 +455,12 @@
             <div class="row mb-3 mobile-test">
                 <!-- Caratula -->
                 <div class="col-md-4">
+                    <a style="text-decoration: none;" href="Continente - Europa.html">
                     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1499856871958-5b9627545d1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1007&q=80)">
                         <h1>EUROPA</h1>
-                        <h5>Proximamente Coleccion Completa</h5>
+                        <h5>Ver Colección Completa</h5>
                     </div>
+                    </a>
                 </div>
                 <!-- Texto de Tarjeta -->
                 <div class="col-4 col-md-2">
@@ -463,10 +515,12 @@
             <div class="row mb-3 mobile-test">
                 <!-- Caratula -->
                 <div class="col-md-4">
+                    <a style="text-decoration: none;" href="Continente - Oceania.html">
                     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1532984969226-95057604f683?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1391&q=80)">
                         <h1>OCEANIA</h1>
-                        <h5>Proximamente Coleccion Completa</h5>
+                        <h5>Ver Colección Completa</h5>
                     </div>
+                    </a>
                 </div>
                 <!-- Texto de Tarjeta -->
                 <div class="col-4 col-md-2">
@@ -535,15 +589,19 @@
         </div>
     </div>
     <!-- JS Validacion -->
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <script src='js/validation.js'></script>
-    <script src="js/swiper-bundle.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/nashot-datos-tiempo-real.js"></script>
+    <script>
+            window.addEventListener('DOMContentLoaded', () => {
+                cargarDatosContinente('totales', 'total-paises', 'paises-reunidos', 'porcentaje-progreso');
+            });
+        </script>
     <script src="js/nashot-tabla-filtro.js"></script>
+    <script src="js/nashot-mapa.js"></script>
   
 
 </body>
 
 </html>
-
-

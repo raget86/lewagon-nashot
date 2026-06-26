@@ -7,9 +7,9 @@
 @import url('components/nashot-looker.css');
 @import url('components/nashot-flip.css');
 @import url('components/nashot-filtro.css');
+@import url('components/nashot-mapa.css');
 @import url('style-carousel.css');
 @import url('swiper-bundle.min.css');
-
 
 
 .container {
@@ -17,6 +17,4 @@
   width: 100%;
   padding: 0 30px;
 }
-
-
 
