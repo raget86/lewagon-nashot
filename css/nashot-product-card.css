@@ -1,7 +1,7 @@
 /* ===== LAYOUT ===== */
 .container .products-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 2fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
 }
 
@@ -19,7 +19,8 @@
 
 .container .products-container .product img {
     max-height: 10rem;
-    max-width: fit-content;
+    max-width: 100%;
+    object-fit: contain;
     transition: transform .2s linear;
 }
 
@@ -172,5 +173,23 @@
 
     .container .products-container .product h3 {
         font-size: 16px;
+    }
+}
+
+@media (min-width: 576px) {
+    .container .products-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .container .products-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .container .products-container {
+        grid-template-columns: repeat(6, 1fr);
     }
 }
